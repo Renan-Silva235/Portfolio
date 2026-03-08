@@ -27,7 +27,6 @@ export default function Hero() {
         minHeight: '80vh',
       }}
     >
-      {/* 1. Foto de Perfil */}
       <Box
         sx={{
           p: '4px',
@@ -42,7 +41,6 @@ export default function Hero() {
         />
       </Box>
 
-      {/* 2. Textos Principais */}
       <Typography
         variant="overline"
         sx={{ color: '#4FD1C5', fontWeight: 'bold', letterSpacing: 3, mb: 1 }}
@@ -88,7 +86,6 @@ export default function Hero() {
         oportunidade de estágio para evoluir em um ambiente profissional.
       </Typography>
 
-      {/* 3. Botões de Ação */}
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3} sx={{ mb: 8 }}>
         <Button
           variant="contained"
@@ -123,7 +120,7 @@ export default function Hero() {
             '&:hover': {
               borderColor: '#4FD1C5',
               borderWidth: '2px',
-              transform: 'scale(1.05)', // Também aumenta 5%
+              transform: 'scale(1.05)', 
               background: 'rgba(79, 209, 197, 0.05)',
             },
           }}
@@ -132,7 +129,6 @@ export default function Hero() {
         </Button>
       </Stack>
 
-      {/* 4. Ícones de Redes Sociais (O QUE FALTA) */}
       <Stack direction="row" spacing={3}>
         <IconButton
           href="https://github.com/Renan-Silva235"
