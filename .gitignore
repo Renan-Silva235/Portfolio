@@ -7,3 +7,4 @@ node_modules/
 
 # Pasta de Build (Opcional, mas recomendado)
 dist/
+.vscode/
