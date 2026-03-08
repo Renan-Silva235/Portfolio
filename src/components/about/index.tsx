@@ -8,7 +8,6 @@ export default function About() {
   return (
     <Box sx={{ py: 10, px: 2, backgroundColor: 'transparent' }}>
       <Box sx={{ maxWidth: '900px', margin: '0 auto' }}>
-        {/* Título da Seção Corrigido */}
         <Typography
           variant="h4"
           sx={{
@@ -17,7 +16,6 @@ export default function About() {
             display: 'flex',
             alignItems: 'center',
             gap: 2,
-            // AQUI ESTÁ A MÁGICA:
             background: color.linearGradient,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -28,7 +26,6 @@ export default function About() {
           Formação Acadêmica
         </Typography>
 
-        {/* Card de Formação */}
         <Paper
           elevation={0}
           sx={{
