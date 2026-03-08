@@ -9,10 +9,8 @@ export default createGlobalStyle`
 }
 
 body {
-  /* Cor escura principal do protótipo */
   background-color: #0a0d14;
 
-  /* O efeito de "luz" suave ao fundo */
   background-image: ${colors.radialGradient};
 
   background-attachment: fixed;
