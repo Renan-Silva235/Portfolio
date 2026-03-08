@@ -64,7 +64,6 @@ function ResponsiveAppBar() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* LOGO DESKTOP */}
           <Typography
             variant="h6"
             noWrap
@@ -86,7 +85,6 @@ function ResponsiveAppBar() {
             &lt;Dev /&gt;
           </Typography>
 
-          {/* MENU MOBILE */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -115,7 +113,6 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
 
-          {/* LOGO MOBILE */}
           <Typography
             variant="h5"
             noWrap
@@ -135,7 +132,6 @@ function ResponsiveAppBar() {
             &lt;Dev /&gt;
           </Typography>
 
-          {/* ITENS DO MENU DESKTOP */}
           <Box
             sx={{
               flexGrow: 1,
