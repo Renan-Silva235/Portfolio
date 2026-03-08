@@ -1,4 +1,3 @@
-// Troque TUDO no seu styled.tsx por isso aqui:
 import { styled, keyframes } from '@mui/material';
 
 const blink = keyframes`
@@ -8,9 +7,9 @@ const blink = keyframes`
 `;
 
 export const BlinkingCursor = styled('span')({
-  color: '#fff !important', // O !important força a cor se o Typography estiver bloqueando
+  color: '#fff !important', 
   fontWeight: 'bold',
   marginLeft: '4px',
-  display: 'inline-block', // Sem isso o navegador às vezes ignora o tamanho/animação
+  display: 'inline-block', 
   animation: `${blink} 1s step-end infinite`,
 });
