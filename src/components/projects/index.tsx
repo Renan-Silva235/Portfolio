@@ -55,7 +55,6 @@ export default function Projects() {
   return (
     <Box sx={{ py: 10, px: 2, backgroundColor: 'transparent' }}>
       <Box sx={{ maxWidth: '1200px', margin: '0 auto' }}>
-        {/* Título com o Gradiente Correto */}
         <Typography
           variant="h4"
           sx={{
@@ -71,7 +70,6 @@ export default function Projects() {
           Projetos em Destaque
         </Typography>
 
-        {/* Usando BOX com FLEX em vez de GRID para matar os erros de TypeScript */}
         <Box
           sx={{
             display: 'flex',
