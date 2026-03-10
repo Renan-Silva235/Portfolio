@@ -4,7 +4,7 @@ import Hero from './components/hero';
 import About from './components/about';
 import Skills from './components/skills';
 import Projects from './components/projects';
-// import Contact from './components/contact';
+import Contact from './components/contact';
 
 function App() {
   return (
@@ -24,9 +24,9 @@ function App() {
       <div id="projetos">
         <Projects />
       </div>
-      {/* <div id="contato">
+      <div id="contato">
         <Contact />
-      </div> */}
+      </div>
     </>
   );
 }
