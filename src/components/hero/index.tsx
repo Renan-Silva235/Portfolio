@@ -89,6 +89,8 @@ export default function Hero() {
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3} sx={{ mb: 8 }}>
         <Button
           variant="contained"
+          component="a" // Define o componente como link
+          href="#projetos" // Aponta para o ID da seção de projetos
           endIcon={<ArrowForwardIcon />}
           sx={{
             background: colors.linearGradient,
@@ -98,7 +100,7 @@ export default function Hero() {
             textTransform: 'none',
             fontWeight: 'bold',
             '&:hover': {
-              transform: 'scale(1.05)', // Aumenta 5% no hover
+              transform: 'scale(1.05)',
               boxShadow: '0 6px 20px rgba(84, 104, 255, 0.5)',
             },
           }}
@@ -120,7 +122,7 @@ export default function Hero() {
             '&:hover': {
               borderColor: '#4FD1C5',
               borderWidth: '2px',
-              transform: 'scale(1.05)', 
+              transform: 'scale(1.05)',
               background: 'rgba(79, 209, 197, 0.05)',
             },
           }}
