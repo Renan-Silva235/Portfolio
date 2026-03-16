@@ -1,14 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Box, Typography, TextField, Button, Container } from '@mui/material';
-import Grid from '@mui/material/Grid'; // Note o Grid2 aqui
+import Grid from '@mui/material/Grid';
 import SendIcon from '@mui/icons-material/Send';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
+  // Estado para armazenar o token do reCAPTCHA
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // 1. Validação do Captcha: Se não tiver token, não envia
+    if (!captchaToken) {
+      alert('Por favor, marque a caixa "Eu não sou um robô".');
+      return;
+    }
 
     if (form.current) {
       const data = new FormData(form.current);
@@ -31,6 +40,7 @@ const ContactForm = () => {
           () => {
             alert('Mensagem enviada com sucesso!');
             form.current?.reset();
+            setCaptchaToken(null); // Reseta o captcha após o envio
           },
           (error) => {
             alert('Erro ao enviar: ' + error.text);
@@ -156,6 +166,18 @@ const ContactForm = () => {
                     backgroundColor: 'rgba(0,0,0,0.2)',
                   },
                 }}
+              />
+            </Grid>
+
+            {/* Google reCAPTCHA */}
+            <Grid
+              size={{ xs: 12 }}
+              sx={{ display: 'flex', justifyContent: 'center', my: 1 }}
+            >
+              <ReCAPTCHA
+                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                onChange={(token) => setCaptchaToken(token)}
+                theme="dark"
               />
             </Grid>
 
