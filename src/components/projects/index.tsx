@@ -22,34 +22,6 @@ export default function Projects() {
       github: 'https://github.com/Renan-Silva235/Password-Generator.git',
       demo: '#',
     },
-    {
-      title: 'Portfólio',
-      description: 'Este projeto desenvolvido com React e Material UI.',
-      tags: ['React', 'MUI', 'TS'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Portfólio',
-      description: 'Este projeto desenvolvido com React e Material UI.',
-      tags: ['React', 'MUI', 'TS'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Portfólio',
-      description: 'Este projeto desenvolvido com React e Material UI.',
-      tags: ['React', 'MUI', 'TS'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Portfólio',
-      description: 'Este projeto desenvolvido com React e Material UI.',
-      tags: ['React', 'MUI', 'TS'],
-      github: '#',
-      demo: '#',
-    },
   ];
 
   return (
