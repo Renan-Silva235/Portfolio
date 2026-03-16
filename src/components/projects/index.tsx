@@ -15,12 +15,12 @@ export default function Projects() {
       demo: '#',
     },
     {
-      title: 'Gerador de Senhas',
+      title: 'Gerador de Senhas Personalizáveis',
       description:
         'Gerador de senhas personalizável, desenvolvido com HTML, CSS e JavaScript.',
       tags: ['HTML', 'CSS', 'JS'],
       github: 'https://github.com/Renan-Silva235/Password-Generator.git',
-      demo: '#',
+      demo: 'https://gerador-de-senhas-eight-lilac.vercel.app/',
     },
   ];
 
@@ -118,9 +118,10 @@ export default function Projects() {
                   <Button
                     fullWidth
                     variant="contained"
+                    href={proj.demo}
                     sx={{ background: color.linearGradient }}
                   >
-                    Demo
+                    Demonstração
                   </Button>
                 </Stack>
               </Stack>
