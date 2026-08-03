@@ -28,7 +28,7 @@ export default function Projects() {
         "Crud simples de um app que gerencia alunos e funcionários de uma escola.",
       tags: ["Java/Spring boot", "TypesScript + React", "Tailwind Css"],
       github: "https://github.com/Renan-Silva235/Frontend_EscolarApp.git",
-      demo: "escolar-app.vercel.app",
+      demo: "https://escolar-app.vercel.app",
     },
   ];
 
