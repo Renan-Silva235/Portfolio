@@ -13,8 +13,13 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import { BlinkingCursor } from './styled';
 import * as colors from '../../config/colors';
+import type { Profile } from '../../types';
 
-export default function Hero() {
+interface HeroProps {
+  profile: Profile | null;
+}
+
+export default function Hero({ profile }: HeroProps) {
   return (
     <Box
       sx={{
@@ -36,7 +41,7 @@ export default function Hero() {
         }}
       >
         <Avatar
-          src="/img/perfil.jpeg"
+          src={profile?.avatar_url ?? undefined}
           sx={{ width: 160, height: 160, border: '6px solid #0a0d14' }}
         />
       </Box>
@@ -59,14 +64,14 @@ export default function Hero() {
           fontSize: { xs: '2.5rem', md: '3.75rem' },
         }}
       >
-        Renan Da Silva Rubio
+        {profile?.name}
       </Typography>
 
       <Typography
         variant="h5"
         sx={{ color: '#e0e0e0', mb: 5, fontWeight: 300 }}
       >
-        Desenvolvedor em Formação <BlinkingCursor>|</BlinkingCursor>
+        {profile?.headline} <BlinkingCursor>|</BlinkingCursor>
       </Typography>
 
       <Typography
@@ -79,11 +84,7 @@ export default function Hero() {
           fontSize: '1.1rem',
         }}
       >
-        Estudante de Análise e Desenvolvimento de Sistemas na UNIP, apaixonado
-        por transformar lógica em interfaces modernas. Atualmente focado em
-        dominar o ecossistema React, TypeScript e C#, construindo projetos
-        práticos para consolidar minha base técnica e buscando minha primeira
-        oportunidade de estágio para evoluir em um ambiente profissional.
+        {profile?.bio}
       </Typography>
 
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3} sx={{ mb: 8 }}>
@@ -111,7 +112,7 @@ export default function Hero() {
         <Button
           variant="outlined"
           startIcon={<WhatsAppIcon />}
-          href="https://wa.me/5515981512669"
+          href={profile?.whatsapp_url ?? '#'}
           sx={{
             color: '#fff',
             borderColor: '#5468FF',
@@ -133,7 +134,7 @@ export default function Hero() {
 
       <Stack direction="row" spacing={3}>
         <IconButton
-          href="https://github.com/Renan-Silva235"
+          href={profile?.github_url ?? '#'}
           target="_blank"
           sx={{
             color: '#4FD1C5',
@@ -148,7 +149,7 @@ export default function Hero() {
         </IconButton>
 
         <IconButton
-          href="https://linkedin.com/in/renan-rubio-017290222"
+          href={profile?.linkedin_url ?? '#'}
           target="_blank"
           sx={{
             color: '#4FD1C5',
@@ -163,7 +164,7 @@ export default function Hero() {
         </IconButton>
 
         <IconButton
-          href="mailto:renan.rubio95@gmail.com"
+          href={profile?.email ? `mailto:${profile.email}` : '#'}
           sx={{
             color: '#4FD1C5',
             border: '1px solid rgba(79, 209, 197, 0.3)',

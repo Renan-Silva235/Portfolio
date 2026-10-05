@@ -174,11 +174,18 @@ const ContactForm = () => {
               size={{ xs: 12 }}
               sx={{ display: 'flex', justifyContent: 'center', my: 1 }}
             >
-              <ReCAPTCHA
-                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                onChange={(token) => setCaptchaToken(token)}
-                theme="dark"
-              />
+              {/* Sem a chave o ReCAPTCHA lança erro e derruba a página inteira */}
+              {import.meta.env.VITE_RECAPTCHA_SITE_KEY ? (
+                <ReCAPTCHA
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                  onChange={(token) => setCaptchaToken(token)}
+                  theme="dark"
+                />
+              ) : (
+                <Typography sx={{ color: '#a0a0a0' }}>
+                  Formulário indisponível: reCAPTCHA não configurado.
+                </Typography>
+              )}
             </Grid>
 
             {/* Botão Enviar */}

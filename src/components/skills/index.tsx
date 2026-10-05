@@ -1,18 +1,12 @@
 import { Box, Typography, LinearProgress, Stack, Paper } from '@mui/material';
 import * as color from '../../config/colors';
+import type { Skill } from '../../types';
 
-export default function Skills() {
-  const skills = [
-    { name: 'JavaScript / TypeScript', progress: 35 },
-    { name: 'React.js', progress: 35 },
-    { name: 'Node.js / Express', progress: 55 },
-    { name: 'SQL (MySQL)', progress: 60 },
-    { name: 'Linux (Ubuntu)', progress: 75 },
-    { name: 'PYTHON', progress: 80 },
-    { name: 'C#', progress: 30 },
-    { name: 'MongoDB', progress: 30 },
-  ];
+interface SkillsProps {
+  skills: Skill[];
+}
 
+export default function Skills({ skills }: SkillsProps) {
   return (
     <Box sx={{ py: 10, px: 2, backgroundColor: 'transparent' }}>
       <Box sx={{ maxWidth: '900px', margin: '0 auto' }}>
@@ -42,7 +36,7 @@ export default function Skills() {
         >
           <Stack spacing={4}>
             {skills.map((skill) => (
-              <Box key={skill.name}>
+              <Box key={skill.id}>
                 <Box
                   sx={{
                     display: 'flex',

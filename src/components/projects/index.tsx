@@ -1,36 +1,17 @@
+import { useState } from "react";
 import { Box, Typography, Paper, Stack, Button } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LaunchIcon from "@mui/icons-material/Launch";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import * as color from "../../config/colors";
+import type { Project } from "../../types";
+import ProjectDetailsModal from "./ProjectDetailsModal";
+import { ProjectLinks } from "./parts";
 
-export default function Projects() {
-  const projects = [
-    {
-      title: "Gerenciador de Contas Bancárias",
-      description:
-        "Sistema de gerenciamento de contas bancárias com Python e interface gráfica feita no Tkinter.",
-      tags: ["PYTHON", "TKINTER", "SQLITE"],
-      github:
-        "https://github.com/Renan-Silva235/gerenciador_de_contas_bancarias.git",
-      demo: "#",
-    },
-    {
-      title: "Gerador de Senhas Personalizáveis",
-      description:
-        "Gerador de senhas personalizável, desenvolvido com HTML, CSS e JavaScript.",
-      tags: ["HTML", "CSS", "JS"],
-      github: "https://github.com/Renan-Silva235/Password-Generator.git",
-      demo: "https://gerador-de-senhas-eight-lilac.vercel.app/",
-    },
-    {
-      title: "EscolarApp",
-      description:
-        "Crud simples de um app que gerencia alunos e funcionários de uma escola.",
-      tags: ["Java/Spring boot", "TypesScript + React", "Tailwind Css"],
-      github: "https://github.com/Renan-Silva235/Frontend_EscolarApp.git",
-      demo: "https://escolar-app.vercel.app",
-    },
-  ];
+interface ProjectsProps {
+  projects: Project[];
+}
+
+export default function Projects({ projects }: ProjectsProps) {
+  const [selected, setSelected] = useState<Project | null>(null);
 
   return (
     <Box sx={{ py: 10, px: 2, backgroundColor: "transparent" }}>
@@ -58,9 +39,9 @@ export default function Projects() {
             justifyContent: "center",
           }}
         >
-          {projects.map((proj, index) => (
+          {projects.map((proj) => (
             <Paper
-              key={index}
+              key={proj.id}
               elevation={0}
               sx={{
                 p: 3,
@@ -83,60 +64,47 @@ export default function Projects() {
               }}
             >
               <Stack spacing={2} sx={{ height: "100%" }}>
-                <Box>
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#fff", fontWeight: 800, mb: 1.5 }}
-                  >
-                    {proj.title}
-                  </Typography>
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                    {proj.tags.map((tag) => (
-                      <Typography
-                        key={tag}
-                        sx={{
-                          fontSize: "0.75rem",
-                          color: "#4FD1C5",
-                          backgroundColor: "rgba(79, 209, 197, 0.1)",
-                          px: 1.5,
-                          py: 0.5,
-                          borderRadius: "50px",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {tag}
-                      </Typography>
-                    ))}
-                  </Box>
-                </Box>
-
-                <Typography sx={{ color: "#a0a0a0", flexGrow: 1 }}>
-                  {proj.description}
+                <Typography
+                  variant="h5"
+                  // Reserva 2 linhas para "Ver detalhes" ficar alinhado entre os cards
+                  sx={{ color: "#fff", fontWeight: 800, minHeight: "2.67em" }}
+                >
+                  {proj.title}
                 </Typography>
 
+                {/* flexGrow mantém os botões alinhados no rodapé de todos os cards */}
+                <Box sx={{ flexGrow: 1 }}>
+                  <Button
+                    size="small"
+                    endIcon={<ArrowForwardIcon />}
+                    onClick={() => setSelected(proj)}
+                    sx={{
+                      color: "#a0a0a0",
+                      textTransform: "none",
+                      px: 0,
+                      "&:hover": {
+                        color: "#4FD1C5",
+                        backgroundColor: "transparent",
+                      },
+                    }}
+                  >
+                    Ver detalhes
+                  </Button>
+                </Box>
+
                 <Stack direction="row" spacing={2} sx={{ pt: 2 }}>
-                  <Button
-                    fullWidth
-                    variant="outlined"
-                    href={proj.github}
-                    sx={{ color: "#fff", borderColor: "rgba(255,255,255,0.2)" }}
-                  >
-                    GitHub
-                  </Button>
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    href={proj.demo}
-                    sx={{ background: color.linearGradient }}
-                  >
-                    Demonstração
-                  </Button>
+                  <ProjectLinks project={proj} />
                 </Stack>
               </Stack>
             </Paper>
           ))}
         </Box>
       </Box>
+
+      <ProjectDetailsModal
+        project={selected}
+        onClose={() => setSelected(null)}
+      />
     </Box>
   );
 }

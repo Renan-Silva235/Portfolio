@@ -1,33 +1,27 @@
-import ResponsiveAppBar from './components/header';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
-import Hero from './components/hero';
-import About from './components/about';
-import Skills from './components/skills';
-import Projects from './components/projects';
-import Contact from './components/contact';
+import PortfolioPage from './pages/PortfolioPage';
+import AdminLogin from './admin/AdminLogin';
+import AdminPanel from './admin/AdminPanel';
+import RequireAuth from './admin/RequireAuth';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <ResponsiveAppBar />
-
-      <div id="home">
-        <Hero />
-      </div>
-      <div id="sobre">
-        <About />
-      </div>
-      <div id="skills">
-        <Skills />
-      </div>
-      <div id="projetos">
-        <Projects />
-      </div>
-      <div id="contato">
-        <Contact />
-      </div>
-    </>
+      <Routes>
+        <Route path="/" element={<PortfolioPage />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin"
+          element={
+            <RequireAuth>
+              <AdminPanel />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
