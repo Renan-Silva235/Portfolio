@@ -1,10 +1,30 @@
-# Segredos
+# Segredos (chaves do Supabase, EmailJS, reCAPTCHA...)
 .env
-.env.local
+.env.*
+*.local
+!.env.example
 
 # Dependências
 node_modules/
 
-# Pasta de Build (Opcional, mas recomendado)
+# Pasta de Build
 dist/
+dist-ssr/
+
+# Vercel (configuração local criada pelo `vercel link`)
+.vercel/
+
+# Supabase CLI (arquivos temporários, caso use a CLI no futuro)
+supabase/.temp/
+supabase/.branches/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editor e sistema operacional
 .vscode/
+.idea/
+.DS_Store
+Thumbs.db
