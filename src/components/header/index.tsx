@@ -62,7 +62,7 @@ function ResponsiveAppBar() {
         right: 0,
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth={false} sx={{ px: { xs: 2, md: 4 } }}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
